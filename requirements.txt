@@ -4,5 +4,4 @@ glob2
 torch
 easyocr
 opencv-python
-os
 PIL
