@@ -8,7 +8,6 @@ import os
 from PIL import ImageFont, ImageDraw, Image
 from tempfile import NamedTemporaryFile
 
-
 st.set_page_config(layout='wide')
 
 def main():
@@ -17,29 +16,20 @@ def main():
     st.title("불법 주정차 차량 번호판 인식")
     st.write("파일명 형식 ex) 2023.05.05.19;40;35.jpg")
     car_img = st.file_uploader(label='이미지 업로드', accept_multiple_files=True)
-
-    cnt2 = -1
+    car_img.sort()
     for file in car_img:
         im, text = detect(car_m, lp_m, reader, file)
         if not text:
             continue
         if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:
             continue
-
         with NamedTemporaryFile(dir='.',suffix='.jpg') as f:
-            f.write(file.getbuffer())
+            f.write(file.getbuffer())        
         time = str(file).split("name='")[1]
         time = time.split(".jpg")[0]
-#         st.write(f.name)
         file_name = f.name.split('tmp')[0] + time + '.jpg'
         file_name = file_name.replace('\\', '/')
-#         st.write(file_name)
-        # st.write(file_path)
-        st.image(im)
-        # file_name_ori = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
-        # file_name = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
-    
-        cnt2 -= 1
+        st.image(im)    
         lp = st.text_input("수정값을 입력하세요.", key=time+'b')
         if lp:            
             st.write('번호판 인식 결과 : ', lp)
@@ -54,9 +44,6 @@ def main():
         
         st.write(f'촬영 시각 : {time[0:4]}년 {time[5:7]}월 {time[8:10]}일 {time[11:13]}시 {time[14:16]}분 {time[17:19]}초')
                
-        # if st.button("기본값", key=file_name+'a'):
-        #     img2 = cv2.imread(file_name)
-        #     os.rename(file_name, file_name_ori)
         st.write('-------------------------------------')
 
 @st.cache
