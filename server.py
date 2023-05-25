@@ -29,10 +29,10 @@ def main():
             f.write(file.getbuffer())
         time = str(file).split("name='")[1]
         time = time.split(".jpg")[0]
-        st.write(f.name)
+#         st.write(f.name)
         file_name = f.name.split('tmp')[0] + time + '.jpg'
         file_name = file_name.replace('\\', '/')
-        st.write(file_name)
+#         st.write(file_name)
         # st.write(file_path)
         st.image(im)
         # file_name_ori = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
