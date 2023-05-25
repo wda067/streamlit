@@ -19,10 +19,10 @@ def main():
 
     for file in car_img:
         im, text = detect(car_m, lp_m, reader, file)
-        if not text:
-            continue
-        if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:
-            continue
+#         if not text:
+#             continue
+#         if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:
+#             continue
         with NamedTemporaryFile(dir='.',suffix='.jpg') as f:
             f.write(file.getbuffer())        
         time = str(file).split("name='")[1]
