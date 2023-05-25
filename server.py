@@ -6,6 +6,8 @@ import numpy as np
 import cv2
 import os
 from PIL import ImageFont, ImageDraw, Image
+from tempfile import NamedTemporaryFile
+
 
 st.set_page_config(layout='wide')
 
@@ -22,12 +24,19 @@ def main():
             continue
         if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:
             continue
+
+        with NamedTemporaryFile(dir='.',suffix='.jpg') as f:
+            f.write(file.getbuffer())
         time = str(file).split("name='")[1]
         time = time.split(".jpg")[0]
+        file_name = f.name.split('tmp')[0] + time + '.jpg'
+        file_name1 = file_name.replace('\\', '/')
+        # st.write(file_path)
         st.image(im)
-        file_name_ori = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
-        file_name = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
-        new = ''
+        # file_name_ori = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
+        # file_name = 'C:/Users/조명근/Desktop/drone_capture/'+time+'.jpg'
+        st.write(file_name1)
+    
         cnt2 -= 1
         lp = st.text_input("수정값을 입력하세요.", key=time+'b')
         if lp:            
@@ -53,7 +62,6 @@ def main():
         
         st.write(f'촬영 시각 : {time[0:4]}년 {time[5:7]}월 {time[8:10]}일 {time[11:13]}시 {time[14:16]}분 {time[17:19]}초')
                
-        
         # if st.button("기본값", key=file_name+'a'):
         #     img2 = cv2.imread(file_name)
         #     os.rename(file_name, file_name_ori)
