@@ -63,7 +63,7 @@ def main():
 def load_model():
     car_m = torch.hub.load("ultralytics/yolov5", 'yolov5s', force_reload=True, skip_validation=True)
     lp_m = torch.hub.load('ultralytics/yolov5', 'custom', 'lp_det.pt')
-    reader = easyocr.Reader(['en'], detect_network='craft', recog_network='best_acc', user_network_directory='streamlit/lp_models/user_network', model_storage_directory='streamlit/lp_models/models')
+    reader = easyocr.Reader(['en'], detect_network='craft', recog_network='best_acc', user_network_directory='https://github.com/wda067/streamlit/lp_models/user_network', model_storage_directory='https://github.com/wda067/streamlit/lp_models/models')
 
     car_m.classes = [2,3,5,7]
     return car_m, lp_m, reader
