@@ -15,6 +15,7 @@ def main():
     
     car_m, lp_m, reader = load_model()
     st.title("불법 주정차 차량 번호판 인식")
+    st.write("파일명 형식 ex) 2023.05.05.19;40;35.jpg")
     car_img = st.file_uploader(label='이미지 업로드', accept_multiple_files=True)
 
     cnt2 = -1
