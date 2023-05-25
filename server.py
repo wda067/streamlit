@@ -43,28 +43,13 @@ def main():
         if lp:            
             st.write('번호판 인식 결과 : ', lp)
             
-#                 with open(os.path.join(f.name.split('tmp')[0], file.name.split('.jpg')[0] + ' ' + lp + '.jpg'), "wb") as f1:
-#                     f1.write(file.getbuffer())
-#                 st.write("파일 저장 위치 : ",f1.name)
             with open(f.name, 'wb') as f2:
                 st.download_button(label="파일 다운로드", data=file, file_name=file.name.split('.jpg')[0] + ' ' + lp + '.jpg',mime="image/jpg")
-                # img2 = cv2.imread(file_name)
-                # os.rename(file_name, file_name.split('.jpg')[0] + ' ' +''.join(lp) + '.jpg')
-        # if st.button("번호판 변경하기", key=time):
-        #     # lp = st.text_input("번호판을 입력하세요.")
-        #     st.write('번호판 인식 결과 : ', lp)
-            
-        #     if st.button("파일명 저장", key=file_name):
-        #         img2 = cv2.imread(file_name)
-        #         os.rename(file_name, file_name.split('.jpg')[0] + ' ' +''.join(lp) + '.jpg')
-        #         # new = file_name.split('.jpg')[0] + ' ' +''.join(text) + '.jpg'
         else:
             st.write('번호판 인식 결과 : ', *text)
 
-            if st.button("파일명 저장", key=file_name):
-                img2 = cv2.imread(file_name)
-                os.rename(file_name, file_name.split('.jpg')[0] + ' ' +''.join(text) + '.jpg')
-                new = file_name.split('.jpg')[0] + ' ' +''.join(text) + '.jpg'
+            with open(f.name, 'wb') as f2:
+                st.download_button(label="파일 다운로드", data=file, file_name=file.name.split('.jpg')[0] + ' ' + lp + '.jpg',mime="image/jpg")
         
         st.write(f'촬영 시각 : {time[0:4]}년 {time[5:7]}월 {time[8:10]}일 {time[11:13]}시 {time[14:16]}분 {time[17:19]}초')
                
