@@ -1,6 +1,6 @@
 streamlit
 numpy
-glob
+glob2
 torch
 easyocr
 cv2
