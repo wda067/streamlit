@@ -19,9 +19,9 @@ def main():
 
     for file in car_img:
         im, text = detect(car_m, lp_m, reader, file)
-#         if not text:
+#         if not text:  # 번호판 탐지가 안됐을 경우
 #             continue
-#         if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:
+#         if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:  # 번호탄 인식 결과가 여러개일 경우
 #             continue
         with NamedTemporaryFile(dir='.',suffix='.jpg') as f:
             f.write(file.getbuffer())        
