@@ -3,6 +3,6 @@ numpy
 glob2
 torch
 easyocr
-cv2
+opencv-python
 os
 PIL
