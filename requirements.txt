@@ -3,9 +3,9 @@ numpy
 glob2
 torch
 easyocr
-opencv-contrib-python==4.5.5.62
+opencv
+#opencv-contrib-python==4.5.5.62
 pillow
 psutil
 tqdm
 ultralytics
-libgl1-mesa-glx
