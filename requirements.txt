@@ -8,3 +8,4 @@ pillow
 psutil
 tqdm
 ultralytics
+libgl1-mesa-glx
