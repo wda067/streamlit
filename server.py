@@ -40,7 +40,7 @@ def main():
             st.write('번호판 인식 결과 : ', *text)
 
             with open(f.name, 'wb') as f2:
-                st.download_button(label="파일 다운로드", data=file, file_name=file.name.split('.jpg')[0] + ' ' + lp + '.jpg',mime="image/jpg")
+                st.download_button(label="파일 다운로드", data=file, file_name=file.name.split('.jpg')[0] + ' ' + text + '.jpg',mime="image/jpg")
         
         st.write(f'촬영 시각 : {time[0:4]}년 {time[5:7]}월 {time[8:10]}일 {time[11:13]}시 {time[14:16]}분 {time[17:19]}초')
                
