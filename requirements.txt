@@ -3,7 +3,7 @@ numpy
 glob2
 torch
 easyocr
-opencv
+opencv-python
 #opencv-contrib-python==4.5.5.62
 pillow
 psutil
