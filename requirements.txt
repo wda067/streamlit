@@ -3,6 +3,7 @@ numpy
 glob2
 torch
 easyocr
+--upgrade pip
 opencv-python
 #opencv-contrib-python==4.5.5.62
 pillow
