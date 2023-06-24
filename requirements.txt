@@ -3,6 +3,7 @@ numpy
 glob2
 torch
 easyocr
+opencv-python==4.5.5.64
 opencv-python-headless==4.5.4.60
 scikit-learn
 pillow
