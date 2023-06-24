@@ -59,7 +59,7 @@ import os
 
 def detect(car_m, lp_m, reader, path):
     fontpath = "SpoqaHanSansNeo-Light.ttf"
-    font = ImageFont.truetype(fontpath, 20)
+    font = ImageFont.truetype(fontpath, 30)
     im = Image.open(path)
 
     im.save(path)
@@ -74,7 +74,7 @@ def detect(car_m, lp_m, reader, path):
         result = lp_m(im)
         if len(result) == 0:
             result_text.append('검출된 차 없음')
-        else:
+        elif len(result) == 1:
             for rslt in result.xyxy[0]:
                 x2,y2,x3,y3 = [item1.cpu().detach().numpy().astype(np.int32) for item1 in rslt[:4]]
                 try:
@@ -86,7 +86,7 @@ def detect(car_m, lp_m, reader, path):
                     return cv2.resize(to_draw, (480,360)), ""
                 img_pil = Image.fromarray(to_draw)
                 draw = ImageDraw.Draw(img_pil)
-                draw.text( (x2-200, y2-200),  text, font=font, fill=(255,0,0))
+                draw.text( (x2-20, y2-50),  text, font=font, fill=(255,0,0), thickness=3)
                 to_draw = np.array(img_pil)
                 st.write((x2.item(),y2))
                 cv2.rectangle(to_draw, (x2.item(),y2.item()),(x3.item(),y3.item()),(255,0,1),thickness=3)
@@ -112,7 +112,7 @@ def detect(car_m, lp_m, reader, path):
                 return cv2.resize(to_draw, (480,360)), ""
             img_pil = Image.fromarray(to_draw)
             draw = ImageDraw.Draw(img_pil)
-            draw.text( (x+x2-200, y+y2-200),  text, font=font, fill=(255,0,0))
+            draw.text( (x+x2-20, y+y2-50),  text, font=font, fill=(255,0,0),thickness=3)
             to_draw = np.array(img_pil)
             cv2.rectangle(to_draw, (x+x2,y+y2),(x+x3,y+y3),(255,0,0),thickness=3)
     
