@@ -99,8 +99,8 @@ def detect(car_m, lp_m, reader, path):
                     return cv2.resize(to_draw, (480, 360)), ""
                 img_pil = Image.fromarray(to_draw)
                 draw = ImageDraw.Draw(img_pil)
-                if y2 < 300:
-                    draw.text((x2 - 40, y2 + 45), text, font=font, fill=(255, 255, 255))
+                if y2 < 295:
+                    draw.text((x2 - 40, y2 + 35), text, font=font, fill=(255, 255, 255))
                 else:
                     draw.text((x2 - 40, y2 - 40), text, font=font, fill=(255, 255, 255))
                 to_draw = np.array(img_pil)
@@ -130,8 +130,8 @@ def detect(car_m, lp_m, reader, path):
                 return cv2.resize(to_draw, (480, 360)), ""
             img_pil = Image.fromarray(to_draw)
             draw = ImageDraw.Draw(img_pil)
-            if y+y2 < 300:
-                draw.text((x + x2 - 40, y + y2 + 45), text, font=font, fill=(255, 255, 255))
+            if y+y2 < 295:
+                draw.text((x + x2 - 40, y + y2 + 35), text, font=font, fill=(255, 255, 255))
             else:
                 draw.text((x + x2 - 40, y + y2 - 40), text, font=font, fill=(255, 255, 255))
             to_draw = np.array(img_pil)
