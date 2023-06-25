@@ -70,7 +70,7 @@ import os
 
 def detect(car_m, lp_m, reader, path):
     fontpath = "SpoqaHanSansNeo-Light.ttf"
-    font = ImageFont.truetype(fontpath, 40)
+    font = ImageFont.truetype(fontpath, 35)
     im = Image.open(path)
 
     im.save(path)
