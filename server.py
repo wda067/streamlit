@@ -99,7 +99,7 @@ def detect(car_m, lp_m, reader, path):
                     return cv2.resize(to_draw, (480, 360)), ""
                 img_pil = Image.fromarray(to_draw)
                 draw = ImageDraw.Draw(img_pil)
-                draw.text((x2 - 25, y2 - 40), text, font=font, fill=(255, 0, 0), thickness=4)
+                draw.text((x2 - 25, y2 - 40), text, font=font, fill=(255, 0, 0), thickness=6)
                 to_draw = np.array(img_pil)
                 st.write((x2.item(), y2))
                 cv2.rectangle(to_draw, (x2.item(), y2.item()), (x3.item(), y3.item()), (255, 0, 1), thickness=2)
@@ -127,7 +127,7 @@ def detect(car_m, lp_m, reader, path):
                 return cv2.resize(to_draw, (480, 360)), ""
             img_pil = Image.fromarray(to_draw)
             draw = ImageDraw.Draw(img_pil)
-            draw.text((x + x2 - 25, y + y2 - 40), text, font=font, fill=(255, 0, 0), thickness=4)
+            draw.text((x + x2 - 25, y + y2 - 40), text, font=font, fill=(255, 0, 0), thickness=6)
             to_draw = np.array(img_pil)
             cv2.rectangle(to_draw, (x + x2, y + y2), (x + x3, y + y3), (255, 0, 0), thickness=2)
 
