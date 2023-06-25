@@ -20,10 +20,10 @@ def main():
         im, text = detect(car_m, lp_m, reader, file)
         if not text:  # 번호판 탐지가 안됐을 경우
             continue
-        if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:  # 번호판 인식 결과가 여러개일 경우 또는 인식 문자가 7개 미만일 경우
+        if len(sorted(text, reverse=True)[0]) < 7 or len(text) > 1:  # 번호탄 인식 결과가 여러개일 경우 또는 인식 문자가 7개 미만일 경우
             continue
         try:
-            int(sorted(text[0], reverse=True)[0])  # 인식 문자에 문자열이 없을 경우
+            int(sorted(text[0], reverse=True)[0])
             continue
         except:
             pass
@@ -132,6 +132,7 @@ def detect(car_m, lp_m, reader, path):
             cv2.rectangle(to_draw, (x + x2, y + y2), (x + x3, y + y3), (255, 0, 0), thickness=2)
 
     return cv2.resize(to_draw, (480, 360)), result_text
+
 
 if __name__ == '__main__':
     main()
